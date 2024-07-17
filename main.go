@@ -29,10 +29,10 @@ func main() {
 	// Encode hexadecimal variables to strings
 	hex.EncodeToString(userHash)
 	hex.EncodeToString(goalHash)
- // If hashes ARE NOT equal, print 'Incorrect!'
+	// If hashes ARE NOT equal, print 'Incorrect!'
 	if !bytes.Equal(userHash, goalHash) {
 		fmt.Print("Incorrect!")
- // If hashes ARE equal, print 'Correct!'
+	// If hashes ARE equal, print 'Correct!'
 	} else if bytes.Equal(userHash, goalHash) {
 		fmt.Print("Correct!")
  // Otherwise, print 'Hmm. Not sure how you did that!'
@@ -50,13 +50,13 @@ func main() {
 func hashAppend(u string, g string) {
 	// Shorthand 'h' to SHA256
 	h := sha256.New()
-	// Hash 'u' string to byte slice
+	// Hash 'u' input to byte slice 'u'
 	h.Write([]byte(u))
 	// Append the sum of byte 'u' to userHash
 	userHash = h.Sum(nil)
 	// Reset the Hash
 	h.Reset()
-	// Hash 'g'
+	// Hash 'g' input to byte slice 'g
 	h.Write([]byte(g))
 	// Append the checksum of byte 'g' to goalHash
 	goalHash = h.Sum(nil)
