@@ -26,14 +26,16 @@ func main() {
 	fmt.Scanln(&userString)
 	// Call hashAppend function
 	hashAppend(userString, goalString)
-
+	// Encode hexadecimal variables to strings
 	hex.EncodeToString(userHash)
 	hex.EncodeToString(goalHash)
-
+ // If hashes ARE NOT equal, print 'Incorrect!'
 	if !bytes.Equal(userHash, goalHash) {
 		fmt.Print("Incorrect!")
+ // If hashes ARE equal, print 'Correct!'
 	} else if bytes.Equal(userHash, goalHash) {
 		fmt.Print("Correct!")
+ // Otherwise, print 'Hmm. Not sure how you did that!'
 	} else {
 		fmt.Print("Hmm. Not sure how you did that!")
 	}
